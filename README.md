@@ -3,7 +3,7 @@
 
 
 
-Desafío: Sistema de gestión de empleados
+Sistema de gestión de empleados
 
 
 
@@ -42,13 +42,13 @@ c. Salir del programa.
 
 
 
-# Requisitos adicionales:
+### Requisitos adicionales:
 - Utiliza el concepto de encapsulamiento para proteger los atributos de la clase "Empleado" y sus subclases.
 - Utiliza el concepto de polimorfismo para tratar a todos los empleados como objetos de la clase base "Empleado".
 - Utiliza el concepto de abstracción para definir los métodos comunes y los métodos abstractos necesarios en las subclases.
 
 
-# Temas útiles:
+### Temas útiles:
 - ¿Que es el método main en java?
 - Variables en java
 - lectura de firma de métodos
