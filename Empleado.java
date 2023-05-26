@@ -1,19 +1,19 @@
 public class Empleado {
-    private String nombre;
-    private double salarioBase;
+    private final String nombre;
+    private final double salarioBase;
     private int horasTrabajadas;
 
-    public Empleado(String nombre, double salario, int horasTrabajadas) {
+    public Empleado(String nombre, double salarioBase, int horasTrabajadas) {
         this.nombre = nombre;
         this.salarioBase = salarioBase;
-        this.horasTrabajadas=horasTrabajadas;
+        this.horasTrabajadas = horasTrabajadas;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public double getSalarioBase() {;
+    public double getSalarioBase() {
         return salarioBase;
     }
 
@@ -31,4 +31,5 @@ public class Empleado {
 
     public void add(Empleado empleado) {
     }
+
 }
