@@ -1,12 +1,22 @@
 public class Empleado {
-    private final String nombre;
-    private final double salarioBase;
+    private String nombre;
+    private double salarioBase;
     private int horasTrabajadas;
 
-    public Empleado(String nombre, double salarioBase, int horasTrabajadas) {
+    private String direccion;
+    private String telefono;
+    private boolean casado;
+    private int hijos;
+
+    public Empleado(String nombre, double salarioBase, int horasTrabajadas, String direccion, String telefono,
+                    boolean casado, int hijos) {
         this.nombre = nombre;
         this.salarioBase = salarioBase;
         this.horasTrabajadas = horasTrabajadas;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.casado = casado;
+        this.hijos = hijos;
     }
 
     public String getNombre() {
@@ -25,11 +35,14 @@ public class Empleado {
         this.horasTrabajadas = horasTrabajadas;
     }
 
-    public double calcularSalarioFinal() {
-        return salarioBase * horasTrabajadas;
+    public void setSalario(double salario) {
+        this.salarioBase = salarioBase;
+    }
+
+    public double calcularSalarioFinal () {
+            return salarioBase * horasTrabajadas;
     }
 
     public void add(Empleado empleado) {
     }
-
 }

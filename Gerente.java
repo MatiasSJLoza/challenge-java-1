@@ -1,8 +1,9 @@
 public class Gerente extends Empleado {
     private double bonificacion;
 
-    public Gerente(String nombre, double salarioBase, int horasTrabajadas, double bonificacion) {
-        super(nombre, salarioBase, horasTrabajadas);
+    public Gerente(String nombre, double salarioBase, int horasTrabajadas, double bonificacion, String direccion,
+                   String telefono, boolean casado, int hijos) {
+        super(nombre, salarioBase, horasTrabajadas, direccion, telefono, casado, hijos);
         this.bonificacion=bonificacion;
     }
 
