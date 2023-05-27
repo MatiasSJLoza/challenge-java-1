@@ -71,8 +71,15 @@ public class Main {
         String direccion = scanner.next();
         System.out.print("Ingrese el teléfono del empleado: ");
         String telefono = scanner.next();
-        System.out.print("¿Está casado/a? (true/false): ");
-        boolean casado = scanner.nextBoolean();
+        boolean casado;
+        try {
+            System.out.print("¿Está casado/a? (true/false): ");
+            casado = scanner.nextBoolean();
+        } catch (InputMismatchException e) {
+            System.out.println("Valor incorrecto para el estado civil. Intente nuevamente.");
+            scanner.nextLine();
+            return;
+        }
         System.out.print("Ingrese la cantidad de hijos del empleado: ");
         int hijos = scanner.nextInt();
 
@@ -84,42 +91,12 @@ public class Main {
         } else if (tipoEmpleado == 2) {
             System.out.println("Ingrese la bonificacion del gerente: ");
             double bonificacion = scanner.nextDouble();
-            System.out.print("Ingrese la dirección del gerente: ");
-            //String direccion = scanner.next();
-            System.out.print("Ingrese el teléfono del gerente: ");
-            //String telefono = scanner.next();
-            //boolean casado;
-            try {
-                System.out.print("¿Está casado/a? (true/false): ");
-                casado = scanner.nextBoolean();
-            } catch (InputMismatchException e) {
-                System.out.println("Valor incorrecto para el estado civil. Intente nuevamente.");
-                scanner.nextLine(); // Limpiar el búfer del scanner
-                return;
-            }
-            System.out.print("Ingrese la cantidad de hijos del gerente: ");
-            //int hijos = scanner.nextInt();
             empleado = new Gerente(nombre, salarioBase, horasTrabajadas, bonificacion, direccion, telefono, casado,
                     hijos);
 
         } else if (tipoEmpleado == 3) {
             System.out.println("Ingrese la bonificacion del director: ");
             double bonificacion = scanner.nextDouble();
-            System.out.print("Ingrese la dirección del director: ");
-            //String direccion = scanner.next();
-            System.out.print("Ingrese el teléfono del director: ");
-            //String telefono = scanner.next();
-            //boolean casado;
-            try {
-                System.out.print("¿Está casado/a? (true/false): ");
-                casado = scanner.nextBoolean();
-            } catch (InputMismatchException e) {
-                System.out.println("Valor incorrecto para el estado civil. Intente nuevamente.");
-                scanner.nextLine(); // Limpiar el búfer del scanner
-                return;
-            }
-            System.out.print("Ingrese la cantidad de hijos del director: ");
-            //int hijos = scanner.nextInt();
             empleado = new Director(nombre, salarioBase, horasTrabajadas, bonificacion, direccion, telefono, casado,
                     hijos);
         } else {
@@ -127,7 +104,7 @@ public class Main {
             return;
         }
 
-        empleado.add(empleado);
+        empleados.add(empleado);
         System.out.println("Empleado agregado correctamente.");
 
     }
