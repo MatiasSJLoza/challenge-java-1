@@ -43,6 +43,4 @@ public class Empleado {
             return salarioBase * horasTrabajadas;
     }
 
-    public void add(Empleado empleado) {
-    }
 }
