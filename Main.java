@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     private static Empleado misEmpleados[];
+    private static ArrayList <Empleado> empleados2 = new ArrayList<Empleado>() ;
 
     public static void main(String[] args) {
         initDatos();
@@ -24,13 +26,24 @@ public class Main {
                     break;
         }
         }
-
     }
     private static void initDatos(){
-        misEmpleados = new Empleado[3];
+        //ArrayList <Empleado> empleados2 = new ArrayList<Empleado>() ;
+        empleados2.add(new EmpleadoRegular("mario", 54, 10, 500));
+        empleados2.add(new Gerente("mati", 25, 20, 500));
+        empleados2.add(new Director("ceci", 28, 30, 500));
+        //System.out.println(empleados2.get(0).mostrarNombre());
+        //arraylist
+    }
+    private static void initDatos2(){
+        misEmpleados = new Empleado[4];
         misEmpleados[0] = new EmpleadoRegular("mario", 54, 10, 500);
         misEmpleados[1] = new Gerente("mati", 25, 20, 500);
         misEmpleados[2] = new Director("ceci", 28, 30, 500);
+
+        //arraylist
+
+
     }
     private static int menu(){
         System.out.println("#########################");
@@ -69,32 +82,49 @@ public class Main {
         int horas = teclado2.nextInt();
 
         if (tipo == 1) {
-            misEmpleados[3] = new EmpleadoRegular(nombre, edad, salario, horas);
+            empleados2.add(new EmpleadoRegular(nombre, edad, salario, horas));
         } else if (tipo == 2) {
-            misEmpleados[3] = new Gerente(nombre, edad, salario, horas);
+            empleados2.add(new Gerente(nombre, edad, salario, horas));
         } else if (tipo == 3) {
-            misEmpleados[3] = new Director(nombre, edad, salario, horas);
+            empleados2.add(new Director(nombre, edad, salario, horas));
         } else
             System.out.println("Se eligio una opcion incorrecta");
 
     }
     private static void mostrarDatos() {
         // pasarle nombre y devolver salario
-        for (Empleado persona : misEmpleados) {
-            System.out.println("Nombre: " + persona.mostrarempleado() + " "+ persona.calcularSalario());
+        //for (Empleado persona : misEmpleados) {
+        //    System.out.println("Nombre: " + persona.mostrarempleado() + " "+ persona.calcularSalario());
+        //}
+        for (int i =0;i<empleados2.size();i++){
+                System.out.println(empleados2.get(i).mostrarempleado() + " "+empleados2.get(i).calcularSalario());
+            }
         }
-    }
+
     private static void mostrarDatoEmpleado() {
 
         System.out.println("Ingrese el nombre del empleado que desea calcular el salario final");
         Scanner teclado1 = new Scanner(System.in);
         String nombre = teclado1.next();
 
-        for (Empleado buscar: misEmpleados){
-            if (buscar.mostrarNombre().equals(nombre)){
-                System.out.println(buscar.mostrarempleado()+ " " +buscar.calcularSalario());
-            };
-        }
+        //for (Empleado buscar : empleados2) {
+        //   if (buscar.mostrarNombre().equals(nombre)) {
+        //           System.out.println(buscar.mostrarempleado() + " " + buscar.calcularSalario());
+        //           }
+        //       else {
+        //           System.out.println("no existe");
+        //       }
+        //}
 
+        boolean existe = false;
+                for (int i=0; i<empleados2.size();i++) {
+                    if (empleados2.get(i).mostrarNombre().equals(nombre)) {
+                        existe = true;
+                        System.out.println(empleados2.get(i).mostrarempleado() + " " + empleados2.get(i).calcularSalario());
+                    }
+                }
+                if (!existe){
+                    System.out.println("no existe");
+                }
+        }
     }
-}
