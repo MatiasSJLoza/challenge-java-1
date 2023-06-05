@@ -83,10 +83,9 @@ public class GestorDeEmpleados {
 
         boolean existe = false;
         for (int i=0; i<empleados.size();i++) {
-            if (empleados.get(i).mostrarNombre().equals(nombre)) {
+            if (empleados.get(i).mostrarNombre().equalsIgnoreCase(nombre)) {
                 existe = true;
                 System.out.println(empleados.get(i).mostrarempleado() + " " + empleados.get(i).calcularSalario());
-                break;
             }
         }
         if (!existe){
