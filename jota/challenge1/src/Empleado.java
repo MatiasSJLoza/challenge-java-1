@@ -19,5 +19,12 @@ public class Empleado {
         this.cantidadHorasTrabajadas = cantidadHorasTrabajadas;
     }
 
-
+    //constructor without arguments
+    public Empleado() {
+    }
+    //constructor with arguments
+    public Empleado(String nombre, int cantidadHorasTrabajadas) {
+        this.nombre = nombre;
+        this.cantidadHorasTrabajadas = cantidadHorasTrabajadas;
+    }
 }
