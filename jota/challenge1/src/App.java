@@ -4,18 +4,19 @@ public class App {
 
         Empleado jotaPerez = new Empleado();
 
-        Empleado matiasLoza = new Empleado("Matias Loza", 200);
+        Empleado matiasLoza = new Empleado("Matias Loza", 200, 100);
 
         //setter for class Empleado
         jotaPerez.setNombre("Jota Perez");
         jotaPerez.setCantidadHorasTrabajadas(160);
+        jotaPerez.setSalarioBase(100);
 
         //use getter for class Empleado
         System.out.println("Nombre: " + jotaPerez.getNombre());
         System.out.println("Horas trabajadas: " + jotaPerez.getCantidadHorasTrabajadas());
 
         System.out.println("---------------------");
-        
+
         System.out.println("Nombre: " + matiasLoza.getNombre());
         System.out.println("Horas trabajadas: " + matiasLoza.getCantidadHorasTrabajadas());
 
