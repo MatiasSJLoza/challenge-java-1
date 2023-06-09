@@ -1,8 +1,8 @@
-public class Empleado {
-    private String nombre;
-    private int salarioBase;
-    private int cantidadHorasTrabajadas;
-    private int salario;
+public abstract class Empleado {
+    public String nombre;
+    public int salarioBase;
+    public int cantidadHorasTrabajadas;
+    public int salario;
 
     public String getNombre() {
         return nombre;
@@ -36,4 +36,9 @@ public class Empleado {
         this.cantidadHorasTrabajadas = cantidadHorasTrabajadas;
         this.salarioBase = salarioBase;
     }
+
+    // Este calculo es para el salario final de un empleado
+    // public void calcularSalario (){
+    //     this.salario = cantidadHorasTrabajadas * salarioBase;
+    // }
 }
