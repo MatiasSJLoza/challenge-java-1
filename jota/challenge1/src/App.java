@@ -4,14 +4,14 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Challenge Java" + '\n' + "---------------------");
 
-        Empleado jotaPerez = new Empleado();
+        //Empleado jotaPerez = new Empleado();
         
         //setter for class Empleado
-        jotaPerez.setNombre("Jota Perez");
-        jotaPerez.setCantidadHorasTrabajadas(160);
-        jotaPerez.setSalarioBase(100);
+        // jotaPerez.setNombre("Jota Perez");
+        // jotaPerez.setCantidadHorasTrabajadas(160);
+        // jotaPerez.setSalarioBase(100);
 
-        Empleado matiasLoza = new Empleado("Matias Loza", 200, 100);
+        // Empleado matiasLoza = new Empleado("Matias Loza", 200, 100);
 
         // //use getter for class Empleado
         // System.out.println("Nombre: " + jotaPerez.getNombre());
