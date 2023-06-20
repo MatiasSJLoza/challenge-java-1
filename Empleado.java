@@ -25,4 +25,8 @@ public abstract class Empleado {
 
     // Método abstrato para calcular o salário final
     public abstract double calcularSalarioFinal();
+
+    public String getNombre() {
+        return null;
+    }
 }
