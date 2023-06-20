@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -62,8 +61,8 @@ public class ControleEmpleado {
 
         boolean encontrado = false;
         for (Empleado empleado : empleados) {
-            if (empleado.getNombre().equalsIgnoreCase(nombre)) {
-                // Verifica se o nome do funcionário é igual ao nome informado, ignorando o caso.
+            if (empleado != null && empleado.getNombre() != null && empleado.getNombre().equalsIgnoreCase(nombre)) {
+                // Verifica se o objeto Empleado e seu nome são diferentes de null antes de verificar a igualdade.
                 double salarioFinal = empleado.calcularSalarioFinal();
                 System.out.println("El salario final de " + nombre + " es: " + salarioFinal);
                 encontrado = true;
@@ -76,4 +75,5 @@ public class ControleEmpleado {
         }
     }
 }
+
 
