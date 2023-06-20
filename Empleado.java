@@ -1,4 +1,5 @@
-public class Empleado {
+public abstract class Empleado {
+    // Atributos
     private String nombre;
     private double salarioBase;
     private int horasTrabajadas;
@@ -8,6 +9,7 @@ public class Empleado {
     private boolean casado;
     private int hijos;
 
+    // Construtor
     public Empleado(String nombre, double salarioBase, int horasTrabajadas, String direccion, String telefono,
                     boolean casado, int hijos) {
         this.nombre = nombre;
@@ -19,28 +21,8 @@ public class Empleado {
         this.hijos = hijos;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
+    // Getters e Setters para os atributos
 
-    public double getSalarioBase() {
-        return salarioBase;
-    }
-
-    public int getHorasTrabajadas() {
-        return horasTrabajadas;
-    }
-
-    public void setHorasTrabajadas(int horasTrabajadas) {
-        this.horasTrabajadas = horasTrabajadas;
-    }
-
-    public void setSalario(double salario) {
-        this.salarioBase = salarioBase;
-    }
-
-    public double calcularSalarioFinal () {
-            return salarioBase * horasTrabajadas;
-    }
-
+    // Método abstrato para calcular o salário final
+    public abstract double calcularSalarioFinal();
 }
