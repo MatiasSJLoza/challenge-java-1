@@ -33,7 +33,7 @@ public class Gerente extends Empleado {
     }
 
     private double getSalarioBase() {
-        return this.salarioBase
+        return this.salarioBase;
     }
 }
 
