@@ -1,8 +1,8 @@
 public abstract class Empleado {
     // Atributos
     private String nombre;
-    private double salarioBase;
-    private int horasTrabajadas;
+    double salarioBase;
+    int horasTrabajadas;
 
     private String direccion;
     private String telefono;

@@ -29,10 +29,10 @@ public class Director extends Empleado {
     }
 
     private int getHorasTrabajadas() {
-        return 0;
+        return this.horasTrabajadas;
     }
 
     private double getSalarioBase() {
-        return 0;
+        return this.salarioBase;
     }
 }
