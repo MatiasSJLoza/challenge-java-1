@@ -19,4 +19,11 @@ public class EmpleadoRegular extends Empleado {
         return getSalarioBase() * getHorasTrabajadas();
         // Neste caso, o salário final é calculado multiplicando o salário base pelas horas trabalhadas.
     }
+
+    private double getHorasTrabajadas() {
+        return 0;
+    }
+
+    private double getSalarioBase() {
+    }
 }
