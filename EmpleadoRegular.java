@@ -21,9 +21,10 @@ public class EmpleadoRegular extends Empleado {
     }
 
     private double getHorasTrabajadas() {
-        return 0;
+        return this.horasTrabajadas;
     }
 
     private double getSalarioBase() {
+        return this.salarioBase;
     }
 }
