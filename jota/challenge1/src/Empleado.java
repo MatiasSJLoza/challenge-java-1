@@ -4,6 +4,8 @@ public abstract class Empleado {
     public int cantidadHorasTrabajadas;
     public int salario;
 
+    public abstract void calcularSalario();
+
     public String getNombre() {
         return nombre;
     }
@@ -37,8 +39,8 @@ public abstract class Empleado {
         this.salarioBase = salarioBase;
     }
 
-    // Este calculo es para el salario final de un empleado
-    // public void calcularSalario (){
-    //     this.salario = cantidadHorasTrabajadas * salarioBase;
-    // }
+    public int getSalario() {
+        return this.salario;
+    }
+
 }

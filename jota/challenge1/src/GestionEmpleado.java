@@ -30,12 +30,16 @@ public class GestionEmpleado {
                 System.out.println("Empleado agregado correctamente.");
                 break;
             case 2:
-                Empleado empleadoGerente = new Gerente(nombre, cantidadHorasTrabajadas, salarioBase);
+                System.out.println("Ingrese la bonificación: ");
+                int bonificacionGerente = scanner.nextInt();
+                Empleado empleadoGerente = new Gerente(nombre, cantidadHorasTrabajadas, salarioBase, bonificacionGerente);
                 listaEmpleados.add(empleadoGerente);
                 System.out.println("Empleado agregado correctamente.");
                 break;
             case 3:
-                Empleado empleadoDirector = new Director(nombre, cantidadHorasTrabajadas, salarioBase);
+                System.out.println("Ingrese la bonificación: ");
+                int bonificacionDirector = scanner.nextInt();
+                Empleado empleadoDirector = new Director(nombre, cantidadHorasTrabajadas, salarioBase, bonificacionDirector);
                 listaEmpleados.add(empleadoDirector);
                 System.out.println("Empleado agregado correctamente.");
                 break;
@@ -55,6 +59,7 @@ public class GestionEmpleado {
         for (Empleado empleado : listaEmpleados) {
             if (empleado.getNombre().equals(nombreEmpleado)){
                 System.out.println("Empleado: " + empleado.getNombre());
+                System.out.println("Salario: " + empleado.getSalario());
             }
         }
     }

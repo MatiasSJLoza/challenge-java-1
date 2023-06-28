@@ -2,7 +2,7 @@ public class Gerente extends Empleado {
     
     private int bonificacion;
 
-    public Gerente(String nombre, int cantidadHorasTrabajadas, int salarioBase) {
+    public Gerente(String nombre, int cantidadHorasTrabajadas, int salarioBase, int bonificacion2) {
     }
 
     public void calcularSalario (){
