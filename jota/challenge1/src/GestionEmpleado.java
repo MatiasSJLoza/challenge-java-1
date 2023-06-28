@@ -15,8 +15,7 @@ public class GestionEmpleado {
         System.out.print("Ingrese el salario base: ");
         int salarioBase = scanner.nextInt();
         // resolver elegir tipo de empleado
-        System.out.println("-----------------------------");
-        System.out.print("Ingrese el tipo de empleado: ");
+        System.out.println("-----------------------------" + '\n' + "Elegir tipo de empleado");
         System.out.println("1. Empleado regular");
         System.out.println("2. Gerente");
         System.out.println("3. Director");
@@ -61,6 +60,14 @@ public class GestionEmpleado {
                 System.out.println("Empleado: " + empleado.getNombre());
                 System.out.println("Salario: " + empleado.getSalario());
             }
+        }
+    }
+
+    public void mostrarListaEmpleados(ArrayList<Empleado> listaEmpleados) {
+        System.out.println("Lista de empleados");
+        for (Empleado empleado : listaEmpleados) {
+            System.out.println("Nombre: " + empleado.getNombre());
+            System.out.println("Salario: " + empleado.getSalario());
         }
     }
     

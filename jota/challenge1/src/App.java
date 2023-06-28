@@ -13,11 +13,12 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
         
-        while (opcion != 3) {
+        while (opcion != 4) {
             System.out.println("Menú de opciones:");
             System.out.println("1. Agregar un empleado");
             System.out.println("2. Calcular el salario final de un empleado ");
-            System.out.println("3. Salir");
+            System.out.println("3. Mostrar lista de Empleados Actuales ");
+            System.out.println("4. Salir");
             System.out.print("Ingrese su opción: ");
             
             opcion = scanner.nextInt();
@@ -27,15 +28,14 @@ public class App {
                     gestionEmpleado.agregarEmpleado( listaEmpleados);
                     break;
                 case 2:
-                    System.out.println("Calcular el salario final de un empleado");
-                    // dependiendo del tipo de empleado va a llamar al metodo calcularSalario de cada uno
-                    System.out.println("Ingrese Nombre del empleado: ");
+                    System.out.println("Ingrese el nombre del empleado: ");
                     String nombreEmpleado = scanner.next();
-                    // donde busco el empleado, tengo que tener una lista de los empleados
-                    // se puede tener una lista de empleados de la clase abstracta?
-                    // si se puede claro
+                    gestionEmpleado.calcularSalario(nombreEmpleado, listaEmpleados);
                     break;
                 case 3:
+                    gestionEmpleado.mostrarListaEmpleados(listaEmpleados);
+                    break;
+                case 4:
                     System.out.println("Ha salido del programa.");
                     break;
                 default:
@@ -45,6 +45,7 @@ public class App {
             
             System.out.println();
         }
+        //cierra el scanner
         scanner.close();
 
     }
