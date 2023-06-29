@@ -24,32 +24,29 @@ public class GestionEmpleado {
         
         switch (tipoEmpleado){
             case 1:
-                Empleado empleadoRegular = new EmpleadoRegular(nombre, cantidadHorasTrabajadas, salarioBase);
-                listaEmpleados.add(empleadoRegular);
-                System.out.println("Empleado agregado correctamente.");
+                listaEmpleados.add(new EmpleadoRegular(nombre, cantidadHorasTrabajadas, salarioBase));
+                System.out.println("Empleado agregado correctamente." + '\n' );
                 break;
             case 2:
                 System.out.println("Ingrese la bonificación: ");
                 int bonificacionGerente = scanner.nextInt();
-                Empleado empleadoGerente = new Gerente(nombre, cantidadHorasTrabajadas, salarioBase, bonificacionGerente);
-                listaEmpleados.add(empleadoGerente);
-                System.out.println("Empleado agregado correctamente.");
+                listaEmpleados.add(new Gerente(nombre, cantidadHorasTrabajadas, salarioBase, bonificacionGerente));
+                System.out.println("Empleado agregado correctamente." + '\n');
                 break;
             case 3:
                 System.out.println("Ingrese la bonificación: ");
                 int bonificacionDirector = scanner.nextInt();
-                Empleado empleadoDirector = new Director(nombre, cantidadHorasTrabajadas, salarioBase, bonificacionDirector);
-                listaEmpleados.add(empleadoDirector);
-                System.out.println("Empleado agregado correctamente.");
+                listaEmpleados.add(new Director(nombre, cantidadHorasTrabajadas, salarioBase, bonificacionDirector));
+                System.out.println("Empleado agregado correctamente." + '\n');
                 break;
             case 4:
                 System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
                 break;
         }
 
-        // agregar empleado nuevo a la lista de empleados
+        //cerrando scanner
+        //scanner.close();
         
-        scanner.close();
     }
 
     public void calcularSalario (String nombreEmpleado, ArrayList <Empleado> listaEmpleados){

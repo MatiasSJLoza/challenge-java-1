@@ -20,12 +20,11 @@ public class App {
             System.out.println("3. Mostrar lista de Empleados Actuales ");
             System.out.println("4. Salir");
             System.out.print("Ingrese su opción: ");
-            
             opcion = scanner.nextInt();
             
             switch (opcion) {
                 case 1:
-                    gestionEmpleado.agregarEmpleado( listaEmpleados);
+                    gestionEmpleado.agregarEmpleado(listaEmpleados);
                     break;
                 case 2:
                     System.out.println("Ingrese el nombre del empleado: ");
@@ -42,10 +41,7 @@ public class App {
                     System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
                     break;
             }
-            
-            System.out.println();
         }
-        //cierra el scanner
         scanner.close();
 
     }
