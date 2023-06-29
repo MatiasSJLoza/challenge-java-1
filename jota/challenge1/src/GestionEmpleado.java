@@ -6,15 +6,16 @@ public class GestionEmpleado {
 
     public void agregarEmpleado(ArrayList<Empleado> listaEmpleados){
         Scanner scanner = new Scanner(System.in);
+        Scanner scannerString = new Scanner(System.in);
+
         System.out.println("=============================================");
         System.out.println("Agregar un empleado");
         System.out.print("Ingrese el nombre del empleado: ");
-        String nombre = scanner.next();
+        String nombre = scannerString.next();
         System.out.print("Ingrese la cantidad de horas trabajadas: ");
         int cantidadHorasTrabajadas = scanner.nextInt();
         System.out.print("Ingrese el salario base: ");
         int salarioBase = scanner.nextInt();
-        // resolver elegir tipo de empleado
         System.out.println("-----------------------------" + '\n' + "Elegir tipo de empleado");
         System.out.println("1. Empleado regular");
         System.out.println("2. Gerente");
@@ -55,7 +56,7 @@ public class GestionEmpleado {
         for (Empleado empleado : listaEmpleados) {
             if (empleado.getNombre().equals(nombreEmpleado)){
                 System.out.println("Empleado: " + empleado.getNombre());
-                System.out.println("Salario: " + empleado.getSalario());
+                empleado.calcularSalario();
             }
         }
     }
@@ -64,7 +65,13 @@ public class GestionEmpleado {
         System.out.println("Lista de empleados");
         for (Empleado empleado : listaEmpleados) {
             System.out.println("Nombre: " + empleado.getNombre());
-            System.out.println("Salario: " + empleado.getSalario());
+            // si el salario esta en 0, es por que no se calculo el salario
+            if (empleado.getSalario() == 0) {
+                System.out.println("Salario : Sin calcular ");
+            }
+            else{
+                System.out.println("Salario : " + empleado.getSalario());
+            }
         }
     }
     

@@ -8,6 +8,11 @@ class EmpleadoRegular extends Empleado{
         this.salarioBase = salarioBase;
     }
 
+    @Override
+    //modificador de acceso public
+    //tipo de dato de return void
+    //nombre del metodo calcularSalario
+    //() parameters --> tipo de dato nombre, tipo de dato nombre, tipo de dato nombre
     public void calcularSalario (){
         this.salario = cantidadHorasTrabajadas * salarioBase;
     }

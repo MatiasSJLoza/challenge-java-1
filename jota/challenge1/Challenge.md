@@ -51,7 +51,7 @@ c. Salir del programa.
 ### Temas útiles:
 - ¿Que es el método main en java?
 - Variables en java
-- lectura de firma de métodos
+- lectura de firma de métodos ?
 - Modificadores de acceso
 - Objetos
 - Instancia de objetos
@@ -61,5 +61,5 @@ c. Salir del programa.
 - Arreglos en java (Array)
 - Herencia
 - Polimorfismo
-- Encapsulamiento
+- Encapsulamiento // modificador de acceso privado, y que sean accedido por métodos públicos FALTA
 - Abstracción
