@@ -1,26 +1,25 @@
 public abstract class Empleado {
-    protected String nombre;
-    protected double sueldobase;
-    protected double horastrabajadas;
+    private String nombre;
+    private double sueldoBase;
+    private int horasTrabajadas;
 
-    public abstract double calculosueldo();
+    public Empleado(String nombre, double sueldoBase, int horasTrabajadas) {
+        this.nombre = nombre;
+        this.sueldoBase = sueldoBase;
+        this.horasTrabajadas = horasTrabajadas;
+    }
 
     public String getNombre() {
         return nombre;
     }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+
     public double getSueldoBase() {
-        return sueldobase;
+        return sueldoBase;
     }
-    public void setSueldoBase(double sueldobase) {
-        this.sueldobase = sueldobase;
+
+    public int getHorasTrabajadas() {
+        return horasTrabajadas;
     }
-    public double getHorastrabajadas() {
-        return horastrabajadas;
-    }
-    public void setHorastrabajadas(double horastrabajadas) {
-        this.horastrabajadas = horastrabajadas;
-    }
+
+    public abstract double calcularSueldoFinal();
 }
