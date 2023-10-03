@@ -3,24 +3,41 @@ package com.meli.challengemc;
 public class Gerente extends Empleado {
 
     //Atrinutos
-    private double bonificacion;
+    private double bonificacionGerente;
+
+    //Constructor completo
+    public Gerente(String nombre, double salario_base, int horas_trabajadas,double bonificacionGerente) {
+        super(nombre,salario_base,horas_trabajadas);
+        this.bonificacionGerente = bonificacionGerente;
+    }
+
+    //Constructor por defecto
+    public Gerente() {
+    }
 
     //Getters
-    public double getBonificacion() {
-        return bonificacion;
+    public double getbonificacionGerente() {
+        return bonificacionGerente;
     }
 
     //Setters
-    public void setBonificacion(double bonificacion) {
-        this.bonificacion = bonificacion;
+    public void setbonificacionGerente(double bonificacionGerente) {
+        this.bonificacionGerente = bonificacionGerente;
     }
 
     //Metodos
 
     @Override
     public String toString() {
-        return "Gerente{" +
-                "bonificacion=" + bonificacion +
+        return super.toString() +
+          " Es Gerente " +
+                "bonificacionGerente=" + bonificacionGerente +
                 '}';
+    }
+
+    @Override
+    public void calcularSalario() {
+        double salarioTotal = getSalario() * getHoras_trabajadas() + getbonificacionGerente();
+        System.out.println("Salario total para el Gerente: " + salarioTotal);
     }
 }

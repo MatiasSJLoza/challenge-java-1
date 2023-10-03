@@ -1,12 +1,22 @@
 package com.meli.challengemc;
 
-public class Empleado {
+public abstract class Empleado {
 
     //Atributos
     private String nombre;
-    private double salario;
+    private double salario_base;
     private int horas_trabajadas;
 
+    //Constructor completo
+    public Empleado(String nombre, double salario_base, int horas_trabajadas) {
+        this.nombre = nombre;
+        this.salario_base = salario_base;
+        this.horas_trabajadas = horas_trabajadas;
+    }
+
+    //Constructor por defecto
+    public Empleado() {
+    }
 
     //Getters
     public String getNombre() {
@@ -14,7 +24,7 @@ public class Empleado {
     }
 
     public double getSalario() {
-        return salario;
+        return salario_base;
     }
 
     public int getHoras_trabajadas() {
@@ -28,7 +38,7 @@ public class Empleado {
     }
 
     public void setSalario(double salario) {
-        this.salario = salario;
+        this.salario_base = salario;
     }
 
     public void setHoras_trabajadas(int horas_trabajadas) {
@@ -37,22 +47,27 @@ public class Empleado {
 
     //Metodos
     public String getFormattedSalary() {
-        return String.format("$%.2f", salario);
+        return String.format("$%.2f", salario_base);
     }
     void Saludar(){
          System.out.println("Buenos dias!!!");
     }
-    void calcularSalario(){
-         System.out.println("Salario total: ");
-    }
+
+//    void calcularSalario(){
+//         double salarioTotal = salario_base * horas_trabajadas;
+//         System.out.println("Salario total: " + salarioTotal );
+//    }
+
+   public abstract void calcularSalario();
+
 
     @Override
     public String toString() {
-        return "Empleado{" +
+        return "Empleado" +
                 "nombre='" + nombre + '\'' +
-                ", salario=" + salario +
-                ", horas_trabajadas=" + horas_trabajadas +
-                '}';
+                ", salario=" + salario_base +
+                ", horas_trabajadas=" + horas_trabajadas;
+
     }
 
 }
