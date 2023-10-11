@@ -100,12 +100,11 @@ public class Menu {
                 }
             }
         }
-//        if(encontrado){
-//            System.out.println("Se encontro!");
-//        }
-//        else{
-//            System.out.println("No se encontro!");
-//        }
+
+        if(!encontrado){
+                    System.out.println("El usuario especificado no se encuentra!");
+                }
+
     }
 
 
@@ -145,14 +144,14 @@ public class Menu {
                             System.out.println("Dar de alta un empleado regular");
                             //Solicitud de datos al usuario
                             //Nombre
-                            Scanner miScanNombre = new Scanner(System.in);
-                            System.out.println("Ingrese nombre del empleado: ");
-                            String nomEmpleado = miScanNombre.nextLine();
+                            String nomEmpleado = inputName("empleado");
                             //Sueldo Base
-                            Scanner miScanSueldo = new Scanner(System.in);
-                            System.out.println("Ingrese el sueldo base: ");
-                            String sueldoEmpleado = miScanSueldo.nextLine();
-                            double sueldo_ingresado = Double.parseDouble(sueldoEmpleado);
+//                            Scanner miScanSueldo = new Scanner(System.in);
+//                            System.out.println("Ingrese el sueldo base: ");
+//                            String sueldoEmpleado = miScanSueldo.nextLine();
+//                            double sueldo_ingresado = Double.parseDouble(sueldoEmpleado);
+                            double sueldo_ingresado = inputValue("sueldo");
+
                             //Horas Trabajadas
                             Scanner miScanHoras = new Scanner(System.in);
                             System.out.println("Ingrese la cantidad de horas trabajadas: ");
@@ -168,9 +167,7 @@ public class Menu {
                             System.out.println("Dar de alta un Gerente");
                             //Solicitud de datos al usuario
                             //Nombre
-                            Scanner miScanNombreG = new Scanner(System.in);
-                            System.out.println("Ingrese nombre del Gerente: ");
-                            String nomGerente = miScanNombreG.nextLine();
+                            String nomGerente = inputName("gerente");
                             //Sueldo Base
                             Scanner miScanSueldoG = new Scanner(System.in);
                             System.out.println("Ingrese el sueldo base: ");
@@ -199,9 +196,7 @@ public class Menu {
                             System.out.println("Dar de alta un Director");
                             //Solicitud de datos al usuario
                             //Nombre
-                            Scanner miScanNombreD = new Scanner(System.in);
-                            System.out.println("Ingrese nombre del Director: ");
-                            String nomDirector = miScanNombreD.nextLine();
+                            String nomDirector = inputName("director");
                             //Sueldo Base
                             Scanner miScanSueldoD = new Scanner(System.in);
                             System.out.println("Ingrese el sueldo base: ");
@@ -255,5 +250,26 @@ public class Menu {
         } while (opcion != 7);
 
         scanner.close();
+    }
+
+    private static String inputName(String employeeType){
+        Scanner scName = new Scanner(System.in);
+        System.out.println("Ingrese el nombre del " + employeeType + " : ");
+        return scName.nextLine();
+    }
+    private static Double inputValue(String value){
+        Scanner scValue = new Scanner(System.in);
+        if (value.equalsIgnoreCase("sueldo") ){
+            System.out.println("Ingrese el sueldo base: ");
+            String sueldoEmpleado = scValue.nextLine();
+            System.out.println("Ingrese el sueldo " + value + " : ");
+            return Double.parseDouble(sueldoEmpleado);
+        }
+        if (value.equalsIgnoreCase("bonificacion")){
+            System.out.println("Ingrese la bonificacion: ");
+            String bonifiGer = scValue.nextLine();
+            return Double.parseDouble(bonifiGer);
+        }
+        return null;
     }
 }
