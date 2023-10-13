@@ -25,7 +25,6 @@ public class Menu {
     public static void actualizarUsuario(EmpleadoRegular emp){
 
     }
-
     public static EmpleadoRegular leerUsuario(EmpleadoRegular emp){
         for (EmpleadoRegular emp1:listaEmp) {
             if (emp1==emp){
