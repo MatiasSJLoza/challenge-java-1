@@ -22,7 +22,6 @@ public class Menu {
     public static void bajaUsuario(EmpleadoRegular emp){
 
     }
-
     public static void actualizarUsuario(EmpleadoRegular emp){
 
     }
