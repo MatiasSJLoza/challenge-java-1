@@ -105,10 +105,6 @@ public class Menu {
 
     }
 
-
-
-
-
     public static void inicio(){
         Scanner scanner = new Scanner(System.in);
         int opcion;
