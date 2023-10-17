@@ -4,19 +4,21 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
+
+    private static ArrayList<Empleado> listaEmpleado = new ArrayList<Empleado>();
     private static ArrayList<EmpleadoRegular> listaEmp = new ArrayList<EmpleadoRegular>();
     private static ArrayList<Gerente> listaGer = new ArrayList<Gerente>();
     private static ArrayList<Director> listaDir = new ArrayList<Director>();
     //Modificar Arraylist por map
 
     public static void altaUsuario(EmpleadoRegular emp){
-        listaEmp.add(emp);
+        listaEmpleado.add(emp);
     }
     public static void altaUsuarioGerente(Gerente ger){
-        listaGer.add(ger);
+        listaEmpleado.add(ger);
     }
     public static void altaUsuarioDirector(Director dir){
-        listaDir.add(dir);
+        listaEmpleado.add(dir);
     }
 
     public static void bajaUsuario(EmpleadoRegular emp){
@@ -25,8 +27,16 @@ public class Menu {
     public static void actualizarUsuario(EmpleadoRegular emp){
 
     }
-    public static EmpleadoRegular leerUsuario(EmpleadoRegular emp){
-        for (EmpleadoRegular emp1:listaEmp) {
+    public static Empleado leerUsuario(Empleado emp){
+        for (Empleado emp1:listaEmpleado) {
+
+            ((EmpleadoRegular)emp1).Saludar();
+
+
+            if(emp1 instanceof EmpleadoRegular empR){
+                empR.calcularSalario();
+                empR.Saludar();
+            }
             if (emp1==emp){
                 return emp1;
             }
@@ -38,7 +48,7 @@ public class Menu {
     }
 
     public static void listarUsuario(){
-        for (EmpleadoRegular emp:listaEmp) {
+        for (Empleado emp:listaEmpleado) {
             System.out.println("Empleado Regular: ");
             System.out.println(emp.getNombre());
         }
@@ -89,7 +99,7 @@ public class Menu {
             }
         }
         if(!encontrado){
-            for (EmpleadoRegular emp:listaEmp){
+            for (Empleado emp:listaEmpleado){
                 if (emp.getNombre().contains(nom)){
                     encontrado = true;
                     System.out.println("Este es el salario del Empleado :" + emp.getNombre());
@@ -111,7 +121,8 @@ public class Menu {
         int opcionEmpleado;
 
         do {
-            System.out.println("**** MENU ****");
+            //System.out.println("**** MENU ****");
+            System.out.println("\033[32m**** MENU ****\033[0m");
             System.out.println("1. Dar de alta un usuario");
             System.out.println("2. Dar de baja un usuario");
             System.out.println("3. Actualizar un usuario");
@@ -119,6 +130,7 @@ public class Menu {
             System.out.println("5. Listar todos los usuarios del sistema");
             System.out.println("6. Calcular el salario final");
             System.out.println("7. Salir");
+            System.out.println("\033[32m**** ---- ****\033[0m");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
 
@@ -137,20 +149,16 @@ public class Menu {
                             // Alta empleado regular
                             System.out.println("Dar de alta un empleado regular");
                             //Solicitud de datos al usuario
+
                             //Nombre
                             String nomEmpleado = inputName("empleado");
+
                             //Sueldo Base
-//                            Scanner miScanSueldo = new Scanner(System.in);
-//                            System.out.println("Ingrese el sueldo base: ");
-//                            String sueldoEmpleado = miScanSueldo.nextLine();
-//                            double sueldo_ingresado = Double.parseDouble(sueldoEmpleado);
                             double sueldo_ingresado = inputValue("sueldo");
 
                             //Horas Trabajadas
-                            Scanner miScanHoras = new Scanner(System.in);
-                            System.out.println("Ingrese la cantidad de horas trabajadas: ");
-                            String horasEmpleado = miScanHoras.nextLine();
-                            int horas_ingresadas = Integer.parseInt(horasEmpleado);
+                            int horas_ingresadas = inputHoras("horas");
+
                             EmpleadoRegular emp = new EmpleadoRegular (nomEmpleado, sueldo_ingresado,horas_ingresadas);
                             altaUsuario(emp);
                             System.out.println("Empleado agregado con exito! " );
@@ -164,7 +172,7 @@ public class Menu {
                             String nomGerente = inputName("gerente");
                             //Sueldo Base
                             Scanner miScanSueldoG = new Scanner(System.in);
-                            System.out.println("Ingrese el sueldo base: ");
+                            System.out.println("Ingrese el sueldo base GERENTE: ");
                             String sueldoGerente = miScanSueldoG.nextLine();
                             double sueldoGerentedouble = Double.parseDouble(sueldoGerente);
                             double sueldo_ingresadoG = Double.parseDouble(sueldoGerente);
@@ -256,7 +264,7 @@ public class Menu {
         if (value.equalsIgnoreCase("sueldo") ){
             System.out.println("Ingrese el sueldo base: ");
             String sueldoEmpleado = scValue.nextLine();
-            System.out.println("Ingrese el sueldo " + value + " : ");
+            //System.out.println("Ingrese el sueldo " + value + " : ");
             return Double.parseDouble(sueldoEmpleado);
         }
         if (value.equalsIgnoreCase("bonificacion")){
@@ -265,6 +273,12 @@ public class Menu {
             return Double.parseDouble(bonifiGer);
         }
         return null;
+    }
 
+    private static int inputHoras(String canthoras){
+        Scanner scHoras = new Scanner(System.in);
+        System.out.println("Ingrese la cantidad de horas trabajadas: ");
+        String horasEmpleado = scHoras.nextLine();
+        return Integer.parseInt(horasEmpleado);
     }
 }

@@ -12,5 +12,9 @@ public class EmpleadoRegular extends Empleado {
         System.out.println("Salario total para el gerente: " + salarioTotal);
     }
 
+    public void Saludar(){
+        System.out.println("Buenos dias!!!");
+    }
+
 
 }
