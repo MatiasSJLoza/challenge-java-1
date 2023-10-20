@@ -38,7 +38,6 @@ public class Menu {
             //Asi se castea un objeto Empleado a EmpleadoRegular
             ((EmpleadoRegular)emp1).Saludar();
 
-
             //Asi se usa con instanceof, que significa instanceof? es un operador que devuelve true si el objeto es de la clase que se le pasa por parametro
             //sirve para manejar encapsulamiento porque si el objeto es de la clase que se le pasa por parametro, se puede acceder a sus metodos y atributos
             if(emp1 instanceof EmpleadoRegular empR){
