@@ -11,7 +11,11 @@ public class Menu {
     private static ArrayList<Director> listaDir = new ArrayList<Director>();
     //Modificar Arraylist por map
 
-    public static void altaUsuario(EmpleadoRegular emp){
+//    public static void altaUsuario(EmpleadoRegular emp){
+//        listaEmpleado.add(emp);
+//    }
+
+    public static void altaUsuario(Empleado emp){
         listaEmpleado.add(emp);
     }
     public static void altaUsuarioGerente(Gerente ger){
@@ -30,9 +34,13 @@ public class Menu {
     public static Empleado leerUsuario(Empleado emp){
         for (Empleado emp1:listaEmpleado) {
 
+            //Test de polimorfismo
+            //Asi se castea un objeto Empleado a EmpleadoRegular
             ((EmpleadoRegular)emp1).Saludar();
 
 
+            //Asi se usa con instanceof, que significa instanceof? es un operador que devuelve true si el objeto es de la clase que se le pasa por parametro
+            //sirve para manejar encapsulamiento porque si el objeto es de la clase que se le pasa por parametro, se puede acceder a sus metodos y atributos
             if(emp1 instanceof EmpleadoRegular empR){
                 empR.calcularSalario();
                 empR.Saludar();
@@ -68,8 +76,8 @@ public class Menu {
 
     public static void listarTodos(){
         listarUsuario();
-        listarGerente();
-        listarDirector();
+        //listarGerente();
+        //listarDirector();
     }
 
 
@@ -170,28 +178,22 @@ public class Menu {
                             //Solicitud de datos al usuario
                             //Nombre
                             String nomGerente = inputName("gerente");
+
                             //Sueldo Base
-                            Scanner miScanSueldoG = new Scanner(System.in);
-                            System.out.println("Ingrese el sueldo base GERENTE: ");
-                            String sueldoGerente = miScanSueldoG.nextLine();
-                            double sueldoGerentedouble = Double.parseDouble(sueldoGerente);
-                            double sueldo_ingresadoG = Double.parseDouble(sueldoGerente);
+                            double sueldo_ingresadoG = inputValue("sueldo");
+
                             //Horas Trabajadas
-                            Scanner miScanHorasG = new Scanner(System.in);
-                            System.out.println("Ingrese la cantidad de horas trabajadas: ");
-                            String horasGerente = miScanHorasG.nextLine();
-                            int horas_ingresadasG = Integer.parseInt(horasGerente);
+                            int horas_ingresadasG = inputHoras("horas");
+
                             //Bonificacion Gerente
-                            Scanner scanBonifG = new Scanner(System.in);
-                            System.out.println("Ingrese la bonificacion: ");
-                            String bonifiGer = scanBonifG.nextLine();
-                            double bonifiGerdouble = Double.parseDouble(bonifiGer);
-                            //int horas_ingresadasG = Integer.parseInt(bonifiGer);
-                            Gerente ger = new Gerente (nomGerente, sueldoGerentedouble, horas_ingresadasG,bonifiGerdouble);
-                            System.out.println("test ! agregado con exito! " );
-                            altaUsuarioGerente(ger);
+                            double bonifiGerdouble = inputValue("bonificacion");
+
+                            Gerente ger = new Gerente (nomGerente, sueldo_ingresadoG, horas_ingresadasG,bonifiGerdouble);
+                            //altaUsuarioGerente(ger);
+                            altaUsuario(ger);
                             System.out.println("Gerente agregado con exito! " );
-                            listarGerente();
+                            //listarGerente();
+                            listarUsuario();
                             break;
                         case 3:
                             // Alta empleado Director
@@ -199,28 +201,23 @@ public class Menu {
                             //Solicitud de datos al usuario
                             //Nombre
                             String nomDirector = inputName("director");
+
                             //Sueldo Base
-                            Scanner miScanSueldoD = new Scanner(System.in);
-                            System.out.println("Ingrese el sueldo base: ");
-                            String sueldoDirector = miScanSueldoD.nextLine();
-                            double sueldoDirectordouble = Double.parseDouble(sueldoDirector);
-                            double sueldo_ingresadoD = Double.parseDouble(sueldoDirector);
+                            double sueldo_ingresadoD = inputValue("sueldo");
+
                             //Horas Trabajadas
-                            Scanner miScanHorasD = new Scanner(System.in);
-                            System.out.println("Ingrese la cantidad de horas trabajadas: ");
-                            String horasDirector = miScanHorasD.nextLine();
-                            int horas_ingresadasD = Integer.parseInt(horasDirector);
+                            int horas_ingresadasD = inputHoras("horas");
+
                             //Bonificacion Director
-                            Scanner scanBonifD = new Scanner(System.in);
-                            System.out.println("Ingrese la bonificacion: ");
-                            String bonifiDir = scanBonifD.nextLine();
-                            double bonifiDirdouble = Double.parseDouble(bonifiDir);
-                            //int horas_ingresadasD = Integer.parseInt(bonifiGer);
-                            Director dir = new Director (nomDirector, sueldoDirectordouble, horas_ingresadasD,bonifiDirdouble);
-                            System.out.println("test ! agregado con exito! " );
-                            altaUsuarioDirector(dir);
+
+                            double bonifiDirdouble = inputValue("bonificacion");
+
+                            Director dir = new Director (nomDirector, sueldo_ingresadoD, horas_ingresadasD,bonifiDirdouble);
+                            //altaUsuarioDirector(dir);
+                            altaUsuario(dir);
                             System.out.println("Gerente agregado con exito! " );
-                            listarDirector();
+                            //listarDirector();
+                            listarUsuario();
                             break;
                         case 4:
                             break;
@@ -254,6 +251,8 @@ public class Menu {
         scanner.close();
     }
 
+
+    //Encapsulamos metodos para reutilizar en los diferentes cases.
     private static String inputName(String employeeType){
         Scanner scName = new Scanner(System.in);
         System.out.println("Ingrese el nombre del " + employeeType + " : ");
